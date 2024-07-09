@@ -1,0 +1,48 @@
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (maste
+$ ls
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ vi bavasree.txt
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ ls -l
+total 1
+-rw-r--r-- 1 bavasree.c 1049089 17 Jul  9 10:11 bavasree.txt
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ git remote add origin
+usage: git remote add [<options>] <name> <url>
+
+    -f, --[no-]fetch      fetch the remote branches
+    --[no-]tags           import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --[no-]track <branch>
+                          branch(es) to track
+    -m, --[no-]master <branch>
+                          master branch
+    --[no-]mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ git remote add origin "https://github.com/BavasreeC/C-bavasree"
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ git pull origin main
+remote: Enumerating objects: 21, done.
+remote: Counting objects: 100% (21/21), done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 21 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (21/21), 6.46 MiB | 4.52 MiB/s, done.
+From https://github.com/BavasreeC/C-bavasree
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ vi test.txt
+
+bavasree.c@WKSBAN36CHATR03 MINGW64 ~/Desktop/123 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
