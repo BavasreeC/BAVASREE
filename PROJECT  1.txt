@@ -1,0 +1,137 @@
+Project –1 
+
+Book Catalog System 
+
+      	 
+
+create database PROJECTB; 
+
+use PROJECTB; 
+
+ 
+
+CREATE TABLE Categories ( 
+
+Category Id INT PRIMARY KEY, 
+
+Category  Name VARCHAR(200) NOT NULL UNIQUE 
+
+ ); 
+
+insert into categories values(140,'Shiva'); 
+
+insert into categories values(150,'Bavasree'); 
+
+insert into categories values(160,'Jahnvi');    
+
+ 
+
+CREATE TABLE Publishers ( 
+
+Publisher Id INT PRIMARY KEY, 
+
+Publisher Name VARCHAR(200) NOT NULL 
+
+); 
+
+insert into publishers values(120,'RAM'); 
+
+insert into publishers values(140,'sANJEEV'); 
+
+insert into publishers values(160,'ARUNA');  
+
+ 
+
+CREATE TABLE Users (  
+
+User INT PRIMARY KEY, 
+
+Username VARCHAR(200) NOT NULL, 
+
+Email VARCHAR(200) NOT NULL UNIQUE, 
+
+Phone Number BIGINT NOT NULL UNIQUE  
+
+); 
+
+insert into users values(101,'sriya','abc@123',9092101010); 
+
+insert into users values(102,'varsha','xyz@345',929000111); 
+
+insert into users values(103,'lavanya','dsp@678',9091234657); 
+
+   
+
+CREATE TABLE Books ( 
+
+Book Id INT PRIMARY KEY, 
+
+Title VARCHAR(200) NOT NULL, 
+
+ISBN INT NOT NULL UNIQUE, 
+
+Publication Year date NOT NULL, 
+
+Publisher Id INT,  
+
+Category Id INT, 
+
+Author Name VARCHAR(200)  CHECK (Author Name  is not null), 
+
+FOREIGN KEY (Publisher Id) REFERENCES Publishers(Publisher Id) ON DELETE CASCADE, 
+
+FOREIGN KEY (Category Id) REFERENCES Categories(Category Id) ON DELETE CASCADE 
+
+); 
+
+insert into books values(122,'killer',09,'2000-07-17',120,140,'sri'); 
+
+insert into books values(144,'moby Dick',70,'2001-08-12',140,150,'priya'); 
+
+insert into books values(100,'pride',75,'2000-09-10',160,160,'srija'); 
+
+ 
+
+CREATE TABLE Borrowings ( 
+
+Borrow Id INT PRIMARY KEY, 
+
+User Id INT, 
+
+Book Id INT, 
+
+Borrow Date DATE NOT NULL, 
+
+Return Date DATE NOT NULL, 
+
+FOREIGN KEY (User Id) REFERENCES Users(User Id) ON DELETE CASCADE, 
+
+FOREIGN KEY (Book Id) REFERENCES Books(Book Id) ON DELETE CASCADE 
+
+); 
+
+insert into Borrowings values(132,101,144,'2000-07-12','2000-07-12'); 
+
+insert into Borrowings values(111,102,122,'2001-08-19','2001-08-10'); 
+
+insert into Borrowings values(133,103,100,'2001-09-10','2001-09-14');  
+
+ 
+
+ 
+
+select * from  books ; 
+
+select * from categories ; 
+
+select * from publishers ; 
+
+select * from users ; 
+
+select* from Borrowings  ; 
+
+ 
+
+ 
+
+ 
