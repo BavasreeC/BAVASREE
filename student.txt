@@ -1,0 +1,49 @@
+create database abc;
+use abc;
+create Table student(
+id int primary key,
+name VARCHAR (200) NOT NULL,
+email varchar (120) not null,
+phonrnumber bigint 
+);
+     insert into student values(149,'Shiva','abc@123',1345678910);
+     insert into student  values(101,'Bavasree','def@345','3456789101');
+     insert into student values(100,'dhiyanesh','bba@456','2341678954');
+
+    select * from student ;  
+select * from student where  name like 's%'; 
+select * from student where name like 'B%';
+select *from student where name like 'd%';
+
+select * from student where name like 's%a';
+select * from student where name like 'B%e';
+select *from student  where name  like 'd%h';
+
+select * from student where name like '%e';
+select * from student where name like 'S____';
+SELECT * FROM STUDENT where name like '_______e';
+select * from student where name not like 'B%';
+
+SELECT * FROM STUDENT ORDER BY NAME ASC;
+
+SELECT * FROM STUDENT ORDER BY NAME DESC;
+SELECT * FROM  STUDENT LIMIT 6;
+ ALTER TABLE STUDENT ADD ADDRESS VARCHAR ( 100);
+ SELECT * FROM STUDENT  ADDRESS ;
+ 
+ ALTER TABLE STUDENT ADD SALARY INT;
+ SELECT NAME FROM STUDENT ORDER BY NAME ASC LIMIT 1;
+ SELECT NAME FROM STUDENT ORDER BY NAME DESC LIMIT 2;
+ UPDATE STUDENT SET SALARY = 5000 WHERE ID IN ( 111,100); 
+ 
+ SELECT * FROM STUDENT SALARY ;
+ UPDATE STUDENT SET ADDRESS =" pune"  WHERE ID in (101,111,149);
+ SELECT * FROM STUDENT ADDRESS ;
+ 
+ select address,count(*) from student group by address;
+ select address, sum(salary) from student group by address;
+ select address , avg(salary) from student group by address;
+ select address , max(salary)from student group by address;
+ select address , min(salary)from student group by address;
+
+ 
