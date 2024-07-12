@@ -1,0 +1,82 @@
+create database abc;
+use abc;
+create Table student(
+id int primary key,
+name VARCHAR (200) NOT NULL,
+email varchar (120) not null,
+phonrnumber bigint 
+);
+     insert into student values(149,'Shiva','abc@123',1345678910);
+     insert into student  values(101,'Bavasree','def@345','3456789101');
+     insert into student values(100,'dhiyanesh','bba@456','2341678954');
+
+    select * from student ;  
+select * from student where  name like 's%'; 
+select * from student where name like 'B%';
+select *from student where name like 'd%';
+
+select * from student where name like 's%a';
+select * from student where name like 'B%e';
+select *from student  where name  like 'd%h';
+
+select * from student where name like '%e';
+
+  CREATE database B;
+  use B;
+ 
+ CREATE TABLE studentABC ( 
+  ID INT ,
+  NAME VARCHAR(120) NOT NULL,
+  ADDRESS VARCHAR (130)
+  );
+
+insert into studentABC value (100, 'shiva','chennai');
+insert into studentABC value ( 101, 'bavasree','tamilnadu');
+insert into studentABC value (120,'dhiyanesh','pune');
+insert into studentABC value (140,'PRIYA','TRICHY');
+insert into studentABC value (111,'VARSHA','BANGALORE');
+
+select * from studentABC ;
+
+CREATE TABLE MARK(id int,totalmarks int, grade varchar(20));
+
+ insert  into MARK  value (100, 120, 'FIRST DIVISION');
+ insert into mark value ( 101,90,'second division');
+ insert into mark value (120,85,'third division');
+ insert into mark value (122,65,'FORTH division');
+ 
+ select * from mark; 
+ select a.id,a.name,a.address,b.totalmarks,b.grade from  studentABC a ,mark b where a.id =b.id ;
+ SELECT studentABC.id, studentABC.name, studentABC.address, mark.totalmarks, mark.grade FROM studentABC
+
+INNER JOIN mark ON studentABC.id = mark.id;
+
+SELECT studentABC.id, studentABC.name, studentABC.address, mark.totalmarks, mark.grade FROM studentABC
+LEFT JOIN  mark ON studentABC.id = mark.id;
+
+SELECT studentABC.*, mark.* FROM studentABC
+INNER JOIN mark ON studentABC.id = mark.id;
+
+SELECT studentABC.id, studentABC.name, studentABC.address, mark.totalmarks, mark.grade FROM studentABC
+RIGHT JOIN  mark ON studentABC.id = mark.id;
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
