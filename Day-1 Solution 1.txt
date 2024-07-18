@@ -1,0 +1,689 @@
+Problem Statement 1:
+
+Problem 1.1: List all even numbers less than or equal to the number n
+
+import java.util.Scanner;
+public class EvenNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = scanner.nextInt();
+        
+        System.out.println("Even numbers less than or equal to " + n + ":");
+        for (int i = 2; i <= n; i += 2) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+Problem 1.2: Define a Rectangle class
+
+class Rectangle {
+    private double length;
+    private double breadth;
+
+    // Constructor with default values
+    public Rectangle() {
+        this.length = 0;
+        this.breadth = 0;
+    }
+
+    // Constructor with given values
+    public Rectangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    // Accessor methods
+    public double getLength() {
+        return length;
+    }
+
+    public double getBreadth() {
+        return breadth;
+    }
+
+    // Mutator methods
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public void setBreadth(double breadth) {
+        this.breadth = breadth;
+    }
+
+    // Method to calculate area
+    public double calculateArea() {
+        return length * breadth;
+    }
+
+    // Method to display rectangle information
+    public void displayInfo() {
+        System.out.println("Length: " + length);
+        System.out.println("Breadth: " + breadth);
+        System.out.println("Area: " + calculateArea());
+    }
+}
+
+
+TestRectangle Class (Problem 1.2d)
+
+import java.util.Scanner;
+public class TestRectangle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter length of rectangle: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter breadth of rectangle: ");
+        double breadth = scanner.nextDouble();
+
+        Rectangle rectangle = new Rectangle(length, breadth);
+        rectangle.displayInfo();
+    }
+}
+
+
+Problem 1.3: Create a Book class
+
+class Book {
+    private String bookTitle;
+    private double bookPrice;
+
+    // Getter methods
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public double getBookPrice() {
+        return bookPrice;
+    }
+
+    // Setter methods
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public void setBookPrice(double bookPrice) {
+        this.bookPrice = bookPrice;
+    }
+}
+
+
+BookTest Class (Problem 1.3d)
+
+import java.util.Scanner;
+public class BookTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of books: ");
+        int numberOfBooks = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        Book[] books = createBooks(scanner, numberOfBooks);
+        showBooks(books);
+    }
+
+    public static Book[] createBooks(Scanner scanner, int numberOfBooks) {
+        Book[] books = new Book[numberOfBooks];
+        for (int i = 0; i < numberOfBooks; i++) {
+            books[i] = new Book();
+            System.out.print("Enter book title: ");
+            books[i].setBookTitle(scanner.nextLine());
+            System.out.print("Enter book price: ");
+            books[i].setBookPrice(scanner.nextDouble());
+            scanner.nextLine(); // consume newline
+        }
+        return books;
+    }
+
+    public static void showBooks(Book[] books) {
+        System.out.printf("%-20s %-10s\n", "Book Title", "Price");
+        for (Book book : books) {
+            System.out.printf("%-20s Rs.%.2f\n", book.getBookTitle(), book.getBookPrice());
+        }
+    }
+}
+
+
+Problem 1.4: Modify the Rectangle class
+
+class Rectangle {
+    private double length;
+    private double width;
+
+    // Constructor with default values
+    public Rectangle() {
+        this.length = 1;
+        this.width = 1;
+    }
+
+    // Constructor with given values
+    public Rectangle(double length, double width) {
+        setLength(length);
+        setWidth(width);
+    }
+
+    // Accessor methods
+    public double getLength() {
+        return length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    // Mutator methods
+    public void setLength(double length) {
+        if (length > 0.0 && length < 20.0) {
+            this.length = length;
+        } else {
+            throw new IllegalArgumentException("Length must be between 0.0 and 20.0");
+        }
+    }
+
+    public void setWidth(double width) {
+        if (width > 0.0 && width < 20.0) {
+            this.width = width;
+        } else {
+            throw new IllegalArgumentException("Width must be between 0.0 and 20.0");
+        }
+    }
+
+    // Method to calculate area
+    public double calculateArea() {
+        return length * width;
+    }
+
+    // Method to calculate perimeter
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+
+    // Method to display rectangle information
+    public void displayInfo() {
+        System.out.println("Length: " + length);
+        System.out.println("Width: " + width);
+        System.out.println("Area: " + calculateArea());
+        System.out.println("Perimeter: " + calculatePerimeter());
+    }
+}
+
+
+TestRectangle Class (Problem 1.4d)
+
+import java.util.Scanner;
+public class TestRectangle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter length of rectangle: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter width of rectangle: ");
+        double width = scanner.nextDouble();
+
+        Rectangle rectangle = new Rectangle(length, width);
+        rectangle.displayInfo();
+    }
+}
+
+
+Problem 1.5: Create a Date and Employee class
+
+class Date {
+    private int day;
+    private int month;
+    private int year;
+
+    // Constructor with default values
+    public Date() {
+        this(1, 1, 2000); // Default date: January 1, 2000
+    }
+
+    // Constructor with given values
+    public Date(int day, int month, int year) {
+        setDate(day, month, year);
+    }
+
+    // Method to set date with error checking
+    public void setDate(int day, int month, int year) {
+        if (day > 0 && day <= 31) {
+            this.day = day;
+        } else {
+            throw new IllegalArgumentException("Invalid day");
+        }
+        if (month > 0 && month <= 12) {
+            this.month = month;
+        } else {
+            throw new IllegalArgumentException("Invalid month");
+        }
+        if (year > 0) {
+            this.year = year;
+        } else {
+            throw new IllegalArgumentException("Invalid year");
+        }
+    }
+
+    // Method to add days to the date
+    public void addDays(int days) {
+        // Simplified version, not handling month/year overflow
+        this.day += days;
+    }
+
+    // Method to display date
+    public void displayDate() {
+        System.out.println(day + "/" + month + "/" + year);
+    }
+}
+
+class Employee {
+    private int employeeNumber;
+    private String employeeName;
+    private Date joiningDate;
+
+    // Constructor with given values
+    public Employee(int employeeNumber, String employeeName, Date joiningDate) {
+        this.employeeNumber = employeeNumber;
+        this.employeeName = employeeName;
+        this.joiningDate = joiningDate;
+    }
+
+    // Method to display employee information
+    public void displayInfo() {
+        System.out.println("Employee Number: " + employeeNumber);
+        System.out.println("Employee Name: " + employeeName);
+        System.out.print("Joining Date: ");
+        joiningDate.displayDate();
+    }
+}
+
+
+EmployeeTest Class (Problem 1.5e)
+
+import java.util.Scanner;
+public class EmployeeTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Employee[] employees = new Employee[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter employee number: ");
+            int employeeNumber = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            System.out.print("Enter employee name: ");
+            String employeeName = scanner.nextLine();
+
+            System.out.print("Enter joining date (dd mm yyyy): ");
+            int day = scanner.nextInt();
+            int month = scanner.nextInt();
+            int year = scanner.nextInt();
+
+            Date joiningDate = new Date(day, month, year);
+            employees[i] = new Employee(employeeNumber, employeeName, joiningDate);
+        }
+
+        for (Employee employee : employees) {
+            employee.displayInfo();
+            System.out.println();
+        }
+    }
+}
+
+
+Problem Statement 2:
+
+
+// Vehicle.java
+class Vehicle {
+    private String manufacturer;
+    private String model;
+    private int year;
+
+    public Vehicle(String manufacturer, String model, int year) {
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.year = year;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void displayDetails() {
+        System.out.println("Manufacturer: " + manufacturer);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+    }
+}
+
+// Car.java
+class Car extends Vehicle {
+    private int seatingCapacity;
+
+    public Car(String manufacturer, String model, int year, int seatingCapacity) {
+        super(manufacturer, model, year);
+        this.seatingCapacity = seatingCapacity;
+    }
+
+    public int getSeatingCapacity() {
+        return seatingCapacity;
+    }
+
+    public void setSeatingCapacity(int seatingCapacity) {
+        this.seatingCapacity = seatingCapacity;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Seating Capacity: " + seatingCapacity);
+    }
+
+    public void accelerate() {
+        System.out.println("Car is accelerating.");
+    }
+
+    public void brake() {
+        System.out.println("Car is braking.");
+    }
+}
+
+// Motorcycle.java
+class Motorcycle extends Vehicle {
+    private double engineCapacity;
+
+    public Motorcycle(String manufacturer, String model, int year, double engineCapacity) {
+        super(manufacturer, model, year);
+        this.engineCapacity = engineCapacity;
+    }
+
+    public double getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(double engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Engine Capacity: " + engineCapacity + " cc");
+    }
+
+    public void startEngine() {
+        System.out.println("Motorcycle engine started.");
+    }
+
+    public void stopEngine() {
+        System.out.println("Motorcycle engine stopped.");
+    }
+}
+
+// Truck.java
+class Truck extends Vehicle {
+    private double cargoCapacity;
+
+    public Truck(String manufacturer, String model, int year, double cargoCapacity) {
+        super(manufacturer, model, year);
+        this.cargoCapacity = cargoCapacity;
+    }
+
+    public double getCargoCapacity() {
+        return cargoCapacity;
+    }
+
+    public void setCargoCapacity(double cargoCapacity) {
+        this.cargoCapacity = cargoCapacity;
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Cargo Capacity: " + cargoCapacity + " tons");
+    }
+
+    public void loadCargo() {
+        System.out.println("Cargo loaded into the truck.");
+    }
+
+    public void unloadCargo() {
+        System.out.println("Cargo unloaded from the truck.");
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Toyota", "Camry", 2020, 5);
+        Motorcycle motorcycle = new Motorcycle("Harley-Davidson", "Street 750", 2019, 749);
+        Truck truck = new Truck("Ford", "F-150", 2021, 3.0);
+
+        System.out.println("Car Details:");
+        car.displayDetails();
+        car.accelerate();
+        car.brake();
+        System.out.println();
+
+        System.out.println("Motorcycle Details:");
+        motorcycle.displayDetails();
+        motorcycle.startEngine();
+        motorcycle.stopEngine();
+        System.out.println();
+
+        System.out.println("Truck Details:");
+        truck.displayDetails();
+        truck.loadCargo();
+        truck.unloadCargo();
+    }
+}
+```
+
+### Explanation:
+1. **Vehicle Class**: A superclass that contains common attributes and methods for all vehicle types.
+2. **Car Class**: Inherits from `Vehicle`, adds `seatingCapacity`, and overrides `displayDetails()`.
+3. **Motorcycle Class**: Inherits from `Vehicle`, adds `engineCapacity`, and implements specific engine methods.
+4. **Truck Class**: Inherits from `Vehicle`, adds `cargoCapacity`, and includes methods for loading and unloading cargo.
+5. **Main Class**: Creates instances of each vehicle type, sets their attributes, and demonstrates their specific methods.
+
+### Usage:
+Compile and run the `Main` class to see the output for each vehicle type, showcasing their specific behaviors and attributes.
+
+
+Problem Statement 3
+
+// Shape.java
+abstract class Shape {
+    abstract double calculateArea();
+}
+
+// Circle.java
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Rectangle.java
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    double calculateArea() {
+        return width * height;
+    }
+}
+
+// Triangle.java
+class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        Shape circle = new Circle(5.0);
+        Shape rectangle = new Rectangle(4.0, 6.0);
+        Shape triangle = new Triangle(3.0, 4.0);
+
+        System.out.printf("Area of Circle: %.2f\n", circle.calculateArea());
+        System.out.printf("Area of Rectangle: %.2f\n", rectangle.calculateArea());
+        System.out.printf("Area of Triangle: %.2f\n", triangle.calculateArea());
+    }
+}
+```
+
+### Explanation:
+1. **Shape Class**: An abstract class with an abstract method `calculateArea()`, enforcing subclasses to provide their own implementations.
+2. **Circle Class**: Implements `calculateArea()` using the formula \( \pi \times r^2 \).
+3. **Rectangle Class**: Implements `calculateArea()` using the formula \( width \times height \).
+4. **Triangle Class**: Implements `calculateArea()` using the formula \( 0.5 \times base \times height \).
+5. **Main Class**: Creates instances of each shape, calculates, and prints the area using the overridden `calculateArea()` methods.
+
+### Usage:
+Compile and run the `Main` class to see the calculated areas for each shape.
+
+
+Problem statement 4
+
+import java.util.Scanner;
+
+class Employee {
+    private String name;
+    private int points;
+
+    // Constructor
+    public Employee(String name, int points) {
+        this.name = name;
+        this.points = points;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Getter for points
+    public int getPoints() {
+        return points;
+    }
+}
+
+class PerformanceRating {
+    public static final int OUTSTANDING = 5;
+    public static final int GOOD = 4;
+    public static final int AVERAGE = 3;
+    public static final int POOR = 2;
+
+    public static int calculatePerformance(Employee e) {
+        int points = e.getPoints();
+        if (points >= 80 && points <= 100) {
+            return OUTSTANDING;
+        } else if (points >= 60 && points < 80) {
+            return GOOD;
+        } else if (points >= 50 && points < 60) {
+            return AVERAGE;
+        } else if (points >= 1 && points < 50) {
+            return POOR;
+        } else {
+            throw new IllegalArgumentException("Points must be between 1 and 100.");
+        }
+    }
+}
+
+public class PerformanceCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of employees: ");
+        int employeeCount = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        Employee[] employees = new Employee[employeeCount];
+
+        for (int i = 0; i < employeeCount; i++) {
+            System.out.print("Enter name for employee " + (i + 1) + ": ");
+            String name = scanner.nextLine();
+            System.out.print("Enter points for employee " + (i + 1) + ": ");
+            int points = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+            employees[i] = new Employee(name, points);
+        }
+
+        System.out.println("Total Number of Employees: " + employeeCount + " and Their Ratings are");
+
+        for (Employee employee : employees) {
+            int rating = PerformanceRating.calculatePerformance(employee);
+            System.out.println(employee.getName() + " Has Performed with a Rating " + rating);
+        }
+
+        scanner.close();
+    }
+}
+```
+
+### Changes Made:
+1. **Scanner Class**: Added to take user input from the console.
+2. **Dynamic Employee Creation**: The program now asks the user for the number of employees and their details (name and points).
+
+### Sample Input/Output:
+When you run the program, it will prompt you to enter the number of employees and their respective details. The output will reflect the ratings based on the input provided. 
+
+For example:
+```
+Enter the number of employees: 3
+Enter name for employee 1: Oliver
+Enter points for employee 1: 95
+Enter name for employee 2: Jayden
+Enter points for employee 2: 40
+Enter name for employee 3: Daniel
+Enter points for employee 3: 75
+Total Number of Employees: 3 and Their Ratings are
+Oliver Has Performed with a Rating 5
+Jayden Has Performed with a Rating 2
+Daniel Has Performed with a Rating 4
+``` 
